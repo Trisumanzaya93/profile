@@ -4,9 +4,17 @@ import { Counter } from './features/counter/Counter';
 import './App.css';
 
 function App() {
+
+  
+  
   return (
     <div className="App">
       <header className="App-header">
+        <div className='w-40 h-40 bg-orange-400 animate-spin-slow rounded-xl flex justify-center items-center mt-36'>
+          <div className='w-36 h-36 rounded-full bg-slate-300 flex justify-center items-center'>
+            <div className='w-20 h-20 animate-spin rounded-xl bg-pink-400'></div>
+          </div>
+        </div>
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>
