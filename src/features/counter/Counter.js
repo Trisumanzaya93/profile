@@ -13,8 +13,6 @@ import { getData } from '../checkApi/api';
 
 export function Counter() {
   const count = useSelector(selectCount);
-  const data = useSelector((state)=>state.berita.data);
-  console.log(data);
   const dispatch = useDispatch();
   
   const [incrementAmount, setIncrementAmount] = useState('2');
@@ -27,7 +25,6 @@ export function Counter() {
   return (
     <div>
       <div className={styles.row}>
-        <h1>{data[0].title}</h1>
         <button
           className={styles.button}
           aria-label="Decrement value"
