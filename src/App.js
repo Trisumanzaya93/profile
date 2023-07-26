@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './pages/home';
 import Admin from './pages/admin/admin';
 import Project from './pages/project';
+import About from './pages/about';
+import MyLearn from './pages/mylearn';
+import Game from './pages/game';
 
 function App() {
 
@@ -15,6 +18,9 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="/admin" element={<Admin/>} />
         <Route path="/project" element={<Project/>} />
+        <Route path="/about" element={<About/>} />
+        <Route path="/mylearn" element={<MyLearn/>} />
+        <Route path="/game" element={<Game/>} />
      </Routes>
     </Router>
     // <div className="App">

@@ -9,7 +9,7 @@ function Image({ uri }) {
     <div>
       <button
         onClick={() => setIsOpen(true)}
-        className="mr-5 w-72 h-56 overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out"
+        className="mr-5 w-96 h-56 overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out"
       >
         <img
           src={require(`../../assets/img/${uri}`)}
@@ -38,7 +38,7 @@ function Image({ uri }) {
 
           <div className="fixed inset-0 z-10 overflow-y-auto">
             <div className="flex flex-col min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+              <div className="bg-white rounded-lg px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                 <div className="sm:flex sm:items-start">
                   <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                     <Dialog.Title
@@ -54,7 +54,7 @@ function Image({ uri }) {
                         alt=""
                       />
                     </div>
-                    <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                    <div className=" py-3 sm:flex sm:flex-row-reverse sm:px-6">
                       <button
                         type="button"
                         className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
@@ -83,21 +83,6 @@ function Image({ uri }) {
           </div>
         </Dialog>
       </Transition.Root>
-      {/* <div
-        className={`fixed ${
-          isOpen ? "" : "hidden"
-        } inset-0 z-10 flex items-center justify-center bg-black bg-opacity-20 transition-opacity`}
-      >
-        <div className="bg-white p-8 rounded-lg shadow-md items-end">
-            <img src={require(`../../assets/img/${uri}`)} className='w-full h-full'alt=""/>
-          <button
-            onClick={() => setIsOpen(false)}
-            className="mt-4  px-4 py-2 bg-gray-500 text-white rounded-md"
-          >
-            Close
-          </button>
-        </div>
-      </div> */}
     </div>
   );
 }
