@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../component/atom/header";
 import Footer from "../../component/atom/footer.js";
 import tri from "../../assets/img/tri.png";
 import CardProject from "../../component/molecule/cardProject";
 import Stack from "../../component/molecule/stack";
+// import Typewriter from "typewriter-effect";
+import Typewriter from 'typewriter-effect/dist/core';
 
 function Home() {
   const navigate = useNavigate();
@@ -19,6 +21,32 @@ function Home() {
       "paymentvr.png",
     ],
   };
+
+  const writer = () => {
+    const title = new Typewriter("#title", {
+      cursor:' '
+    });
+     title
+    .typeString('sumanzaya')
+    .pauseFor(2500)
+    .start();
+    const job = new Typewriter('#job',{
+      cursor:' ',
+      string:' '
+    })
+    setTimeout(() => {
+    job
+    .typeString('a Software Developer')
+    .pauseFor(2500)
+    .start(2500);
+    }, 3000);
+    
+  }
+
+  useEffect( () => {
+    writer()
+  }, []);
+
   return (
     <div className="mx-auto  max-w-[1440px] h-full bg-gray-100 scrollbar-hide">
       <Header />
@@ -37,11 +65,24 @@ function Home() {
           <div className="flex pt-6">
             <h1 className="text-6xl ">I am</h1>
             <div className="bg-[#232946] ml-2 px-4 rounded-lg transition ease-in-out delay-150 hover:-translate-y-1  hover:-rotate-12 duration-300">
-              <h1 className="text-6xl text-gray-100">Sumanzaya</h1>
+              <h1 className="text-6xl text-gray-100" id="title">
+                Sumanzaya
+              </h1>
+              {/* <Typewriter
+                onInit={(typewriter) => {
+                  typewriter
+                    .typeString('<h1 className="text-6xl text-gray-100">Sumanzaya</h1>')
+                    .callFunction(() => {
+                      console.log("String typed out!");
+                    })
+                    .pauseFor(2500)
+                    .start();
+                }}
+              /> */}
             </div>
           </div>
           <div className="bg-[#232946] ml-2 px-4 mt-6 rounded-lg transition ease-in-out delay-150 hover:-translate-y-1  hover:scale-110 duration-300">
-            <h1 className="text-6xl text-gray-100">a Software Developer</h1>
+            <h1 className="text-6xl text-gray-100" id='job'>   </h1>
           </div>
         </div>
       </div>
@@ -49,7 +90,7 @@ function Home() {
         <div className="w-full justify-between mb-10">
           <h1 className="text-4xl">Tech Stack</h1>
         </div>
-        <Stack/>
+        <Stack />
       </div>
       <div className="w-full px-10 font-primary font-extrabold mt-20">
         <div className="w-full flex justify-between mb-10">
