@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 function Header() {
   const navigate = useNavigate();
   let [isOpen, setIsOpen] = useState(false);
+  let [isBurger, setIsBurger] = useState(false);
   let [isError, setIsError] = useState(false);
   let [isError1, setIsError1] = useState(false);
   let [message, setMessage] = useState("");
@@ -104,11 +105,11 @@ function Header() {
     if(hasActive.wa) return whatsapp()
     return email()
   }
+
   return (
     <>
       <nav
         className="
-  relative
   w-full
   flex flex-wrap
   items-center
@@ -117,9 +118,9 @@ function Header() {
   bg-[#232946]
   text-gray-100
   focus:text-gray-700
-  rounded-b-2xl
   shadow-lg
   navbar navbar-expand-lg navbar-light
+  relative
   "
       >
         <div className="flex flex-row items-center">
@@ -128,7 +129,7 @@ function Header() {
           </div>
           <h1 className="font-primary text-2xl">umanzaya</h1>
         </div>
-        <div className="w-1/3 flex flex-row justify-between mr-10">
+        <div className="w-1/3 hidden md:flex md:flex-row md:justify-between mr-10">
           <div
             className="cursor-pointer font-primary hover:text-white"
             onClick={() => navigate("/")}
@@ -160,7 +161,51 @@ function Header() {
             Contact Us
           </div>
         </div>
+        <button onClick={()=>setIsBurger(!isBurger)} className="w-1/3 flex justify-end md:hidden mr-10">
+        <svg
+              className="h-6 w-6 fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              {isBurger ? (
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M3.293 18.293L12 9.586l8.707 8.707 1.414-1.414L13.414 8.172l1.414-1.414L21.414 12l-7.707 7.707-1.414-1.414z"
+                />
+              ) : (
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M4 8h16v2H4V8zm0 5h16v2H4v-2z"
+                />
+              )}
+            </svg>
+        </button>
       </nav>
+      {isBurger ?
+      <div className="w-[100vw] bg-[rgb(0,0,0,0.2)] absolute flex flex-row justify-end">
+        <div className="text-2xl w-full z-20 bg-gray-100">
+          <div className="border-b-4 border-[#232946] hover:bg-[#232946] hover:text-gray-100 py-5">
+            <p className="text-center">Home</p>
+          </div>
+          <div className="border-b-4 border-[#232946] hover:bg-[#232946] hover:text-gray-100 py-5">
+            <p className="text-center">Project</p>
+          </div>
+          <div className="border-b-4 border-[#232946] hover:bg-[#232946] hover:text-gray-100 py-5">
+            <p className="text-center">My Learn </p>
+          </div>
+          <div className="border-b-4 border-[#232946] hover:bg-[#232946] hover:text-gray-100 py-5">
+            <p className="text-center">About</p>
+          </div>
+          <div className="border-b-4 border-[#232946] hover:bg-[#232946] hover:text-gray-100 py-5">
+            <p className="text-center">Contact Us</p>
+          </div>
+        </div>
+
+      </div> :
+      null 
+    }
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
